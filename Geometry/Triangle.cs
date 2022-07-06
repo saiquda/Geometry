@@ -7,23 +7,23 @@ namespace Geometry
         public double A { get; }
         public double B { get; }
         public double C { get; }
+        public readonly bool isRectangular;
         public Triangle(double a, double b, double c)
         {
-            double sides = a + b + c;
+            double primetr = a + b + c;
             double maxSide = Math.Max(a, Math.Max(b, c));
-            if (!((sides - maxSide) - maxSide > 0))
+            if (!((primetr - maxSide) - maxSide > 0))
                 throw new ArgumentException("Большая сторона треугольника должна быть меньше суммы других сторон");
+
+            if (a == Math.Sqrt(b * b + c * c) ||
+                b == Math.Sqrt(a * a + c * c) ||
+                c == Math.Sqrt(b * b + a * a))
+                isRectangular = true;
             else
-            {
-                if (a == Math.Sqrt(b * b + c * c) || b == Math.Sqrt(a * a + c * c) || c == Math.Sqrt(b * b + a * a))
-                {
-                    this.A = a;
-                    this.B = b;
-                    this.C = c;
-                }
-                else
-                    throw new ArgumentException("Треугольник непрямоугольный.");
-            }
+                isRectangular = false;
+            this.A = a;
+            this.B = b;
+            this.C = c;
         }
         public double GetSquare()
         {
