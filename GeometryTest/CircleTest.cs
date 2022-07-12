@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace GeometryTest
 {
-    public class Tests
+    public class CircleTest
     {
         [SetUp]
         public void Setup()
