@@ -7,7 +7,7 @@ namespace GeometryTest
     public class TriangleTest
     {
 
-		public const double CalculationAccuracy = 1e-2;//Погрешность
+		public const double CalculationAccuracy = 1e-6;//Погрешность
 		/// <summary>
 		/// Error Test
 		/// </summary>
@@ -56,7 +56,7 @@ namespace GeometryTest
 		public void GetAcuteTrSquareTest(double a, double b, double c)
 		{
 			var triangle = new Triangle(a, b, c);
-			var result = 7.806;
+			var result = 7.806247;
 			var square = triangle.GetSquare();
 			Assert.NotNull(square);
             Assert.LessOrEqual(Math.Abs(square - result), CalculationAccuracy);
@@ -69,7 +69,7 @@ namespace GeometryTest
 		public void GetObtuseTrSquareTest(double a, double b, double c)
 		{
 			var triangle = new Triangle(a, b, c);
-			var result = 16.248;
+			var result = 16.248077;
 			var square = triangle.GetSquare();
 			Assert.NotNull(square);
             Assert.Less(Math.Abs(square - result), CalculationAccuracy);

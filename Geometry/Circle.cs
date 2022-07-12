@@ -4,11 +4,13 @@ using System.Text;
 
 namespace Geometry
 {
-    class Circle : IFigure
+    public class Circle : IFigure
     {
         double r { get; }
         public Circle(double r)
         {
+            if(r<=0)
+                throw new ArgumentException("Неверно указан радиус");
             this.r = r;
         }
         public double GetSquare()
