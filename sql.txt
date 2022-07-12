@@ -1,5 +1,0 @@
-SELECT product.Name, category.Name FROM product
-LEFT JOIN ProductCategories
-ON product.Id = ProductCategories.ProductId
-LEFT JOIN category
-ON ProductCategories.CategoryId = category.Id;
